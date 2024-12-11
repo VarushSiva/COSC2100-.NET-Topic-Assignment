@@ -41,7 +41,7 @@ namespace LearningLogForm
         {
             if (!isRecording)
             {
-                labelRecordText.Content = "S_top";
+                labelRecordText.Content = "St_op";
                 isRecording = true;
                 RecordWav.StartRecording();
                 buttonSave.IsEnabled = false;

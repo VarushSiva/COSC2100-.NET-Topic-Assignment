@@ -14,7 +14,7 @@
 
         <TabControl x:Name="tabController"  SelectionChanged="TabChanged">
             <!-- The entry tab. -->
-            <TabItem x:Name="tabEntry" Header="_Audio Log Entry" ToolTip="Create a new Audio Log Entry" >
+            <TabItem x:Name="tabEntry" Header="_Audio Log Entry" ToolTip="Create a new Audio Log Entry" AutomationProperties.Name="Audio Log Entry Tab" AutomationProperties.HelpText="Allows you to create a new audio log entry. Use the left arrow key to move to the List of Entries Tab and Use the right arrow key to move to the Text Entry Tab.">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition />
@@ -31,7 +31,7 @@
                     </Grid.RowDefinitions>
 
                     <!-- Record button -->
-                    <Button x:Name="buttonRecord" Grid.Column="0" Grid.Row="0" Margin="72,5,73,5" Click="buttonRecord_Click" ToolTip="Click to start the audio recording (Alt+R to Start, Alt+T to Stop)">
+                    <Button x:Name="buttonRecord" Grid.Column="0" Grid.Row="0" Margin="72,5,73,5" Click="buttonRecord_Click" ToolTip="Click to start the audio recording (Alt+R to Start, Alt+O to Stop)" AutomationProperties.Name="Record Button" AutomationProperties.HelpText="Click to start or stop audio recording.">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="18*"/>
@@ -48,7 +48,7 @@
                         </Grid>
                     </Button>
                     <!-- Playback button -->
-                    <Button x:Name="buttonPlay" Grid.Column="1" Grid.Row="0" Margin="72,5,72,5" IsEnabled="False" ToolTip="Click to playback the audio recording (Alt+P)" Click="buttonPlay_Click">
+                    <Button x:Name="buttonPlay" Grid.Column="1" Grid.Row="0" Margin="72,5,72,5" IsEnabled="False" ToolTip="Click to playback the audio recording (Alt+P)" Click="buttonPlay_Click" AutomationProperties.Name="Play Button" AutomationProperties.HelpText="Click to play back the recorded audio.">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition />
@@ -61,7 +61,7 @@
                         </Grid>
                     </Button>
                     <!-- Delete button -->
-                    <Button x:Name="buttonDelete"  Grid.Column="2" Grid.Row="0" Margin="73,5,72,5" IsEnabled="False" ToolTip="Click to delete the audio recording (Alt+D)" Click="buttonDelete_Click">
+                    <Button x:Name="buttonDelete"  Grid.Column="2" Grid.Row="0" Margin="73,5,72,5" IsEnabled="False" ToolTip="Click to delete the audio recording (Alt+D)" Click="buttonDelete_Click" AutomationProperties.Name="Delete Button" AutomationProperties.HelpText="Click to delete the audio recording.">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition />
@@ -76,7 +76,7 @@
 
                     <!-- Row 1 & 2 ComboBox -->
                     <Label Content="_Wellness/Mood:" Target="{Binding ElementName=comboWellness}" Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" Margin="72,0,73,0" Height="32" />
-                    <ComboBox x:Name="comboWellness" Grid.Column="1" Grid.Row="1" Margin="72,10,72,7" ToolTip="Indicate your Wellness Level (Alt+W)">
+                    <ComboBox x:Name="comboWellness" Grid.Column="1" Grid.Row="1" Margin="72,10,72,7" ToolTip="Indicate your Wellness Level (Alt+W)" AutomationProperties.Name="Wellness Rating" AutomationProperties.HelpText="Select a number from 1 to 5 to rate your wellness or mood.">
                         <ComboBoxItem Content="1"/>
                         <ComboBoxItem Content="2"/>
                         <ComboBoxItem Content="3"/>
@@ -85,7 +85,7 @@
                     </ComboBox>
 
                     <Label Content="Today's _Quality:" Target="{Binding ElementName=comboQuality}" Grid.Column="0" Grid.Row="1" VerticalAlignment="Top" Margin="72,40,73,0" Height="32" Grid.RowSpan="2" />
-                    <ComboBox x:Name="comboQuality" Grid.Column="1" Grid.Row="2" Margin="72,5,72,7" ToolTip="Indicate your Quality Level (Alt+Q)">
+                    <ComboBox x:Name="comboQuality" Grid.Column="1" Grid.Row="2" Margin="72,5,72,7" ToolTip="Indicate your Quality Level (Alt+Q)" AutomationProperties.Name="Quality Rating" AutomationProperties.HelpText="Select a number from 1 to 5 to rate the quality of your day.">
                         <ComboBoxItem Content="1"/>
                         <ComboBoxItem Content="2"/>
                         <ComboBoxItem Content="3"/>
@@ -97,10 +97,10 @@
                     <Label Content="_Notes:" Grid.Column="0" Grid.Row="3" Target="{Binding ElementName=textNotes}" VerticalAlignment="Top" Grid.ColumnSpan="2" Margin="0,4,264,0" Height="26"/>
 
                     <!-- Row 3. Just the big textbox. -->
-                    <TextBox x:Name="textNotes" Grid.ColumnSpan="3" Grid.Row="4" Margin="5,5,5,5" TextChanged="textNotes_TextChanged" ToolTip="Enter any notes about today's entry (Alt+N)"/>
+                    <TextBox x:Name="textNotes" Grid.ColumnSpan="3" Grid.Row="4" Margin="5,5,5,5" TextChanged="textNotes_TextChanged" ToolTip="Enter any notes about today's entry (Alt+N)" AutomationProperties.Name="Notes Textbox" AutomationProperties.HelpText="Write additional notes for today's entry."/>
 
                     <!-- Row 4. Just the save button. -->
-                    <Button x:Name="buttonSave" Click="buttonSave_Click" Grid.Column="1" Grid.Row="5" Margin="72,5,72,5" IsEnabled="False" ToolTip="Click to finalize and save this entry (Alt+V)">
+                    <Button x:Name="buttonSave" Click="buttonSave_Click" Grid.Column="1" Grid.Row="5" Margin="72,5,72,5" IsEnabled="False" ToolTip="Click to finalize and save this entry (Alt+V)" AutomationProperties.Name="Save Button" AutomationProperties.HelpText="Click to save the audio log entry.">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition />
@@ -116,9 +116,9 @@
 
                 </Grid>
             </TabItem>
-            
+
             <!-- Text Entry Tab -->
-            <TabItem x:Name="tabTextEntry" Header="_Text Entry" ToolTip="Create a new text entry">
+            <TabItem x:Name="tabTextEntry" Header="_Text Entry" ToolTip="Create a new text entry" AutomationProperties.Name="Text Entry Tab" AutomationProperties.HelpText="Allows you to create a new text log entry.Use the left arrow key to move to the Audio Log Entry Tab and Use the right arrow key to move to the Summary Tab.">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
@@ -131,10 +131,10 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-                    
+
                     <!-- Wellness ComboBox -->
                     <Label Content="_Wellness/Mood:" Target="{Binding ElementName=comboWellnessText}" Grid.Row="0" Margin="10" />
-                    <ComboBox x:Name="comboWellnessText" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" Margin="10" ToolTip="Indicate your Wellness Level (Alt+W)">
+                    <ComboBox x:Name="comboWellnessText" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" Margin="10" ToolTip="Indicate your Wellness Level (Alt+W)" AutomationProperties.Name="Wellness Rating" AutomationProperties.HelpText="Select a number from 1 to 5 to rate your wellness or mood.">
                         <ComboBoxItem Content="1"/>
                         <ComboBoxItem Content="2"/>
                         <ComboBoxItem Content="3"/>
@@ -143,26 +143,26 @@
                     </ComboBox>
 
                     <Label Content="Today's _Quality:" Target="{Binding ElementName=comboQualityText}"  Grid.Row="1" Margin="10" />
-                    <ComboBox x:Name="comboQualityText" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Margin="10" ToolTip="Indicate your Quality Level (Alt+Q)">
+                    <ComboBox x:Name="comboQualityText" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Margin="10" ToolTip="Indicate your Quality Level (Alt+Q)" AutomationProperties.Name="Quality Rating" AutomationProperties.HelpText="Select a number from 1 to 5 to rate the quality of your day.">
                         <ComboBoxItem Content="1"/>
                         <ComboBoxItem Content="2"/>
                         <ComboBoxItem Content="3"/>
                         <ComboBoxItem Content="4"/>
                         <ComboBoxItem Content="5"/>
                     </ComboBox>
-                    
+
                     <!-- Text Entry -->
                     <Label Content="_Text:" Target="{Binding ElementName=textEntry}" Grid.Row="2" Margin="10" />
-                    <TextBox x:Name="textEntry" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Margin="10" ToolTip="Enter Text (Alt+T)" />
-                    
+                    <TextBox x:Name="textEntry" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Margin="10" ToolTip="Enter Text (Alt+T)" AutomationProperties.Name="Text Entry" AutomationProperties.HelpText="Allows you to create a new text log entry."/>
+
                     <!-- Save Button -->
-                    <Button x:Name="buttonSaveText" Grid.Row="3" Grid.Column="1"  Margin="10" Click="buttonSaveText_Click" ToolTip="Save text entry (Alt+S)">_Save</Button>
+                    <Button x:Name="buttonSaveText" Grid.Row="3" Grid.Column="1"  Margin="10" Click="buttonSaveText_Click" ToolTip="Save text entry (Alt+V)" AutomationProperties.Name="Save Button" AutomationProperties.HelpText="Click to save the text log entry.">Sa_ve</Button>
                     <!-- Delete Button -->
-                    <Button x:Name="buttonDeleteText" Grid.Row="3" Grid.Column="2"  Margin="10" Click="buttonDeleteText_Click" IsEnabled="False" ToolTip="Delete text entry (Alt+D)">_Delete</Button>
+                    <Button x:Name="buttonDeleteText" Grid.Row="3" Grid.Column="2"  Margin="10" Click="buttonDeleteText_Click" IsEnabled="False" ToolTip="Delete text entry (Alt+D)" AutomationProperties.Name="Delete Button" AutomationProperties.HelpText="Click to delete the text log entry.">_Delete</Button>
                 </Grid>
             </TabItem>
             <!-- The summary tab. -->
-            <TabItem x:Name="tabSummary" Header="_Summary" ToolTip="View the summary" >
+            <TabItem x:Name="tabSummary" Header="_Summary" ToolTip="View the summary" AutomationProperties.Name="Summary Tab" AutomationProperties.HelpText="Displays a summary of the total number of entries and their timestamps. Use the left arrow key to move to the Text Entry Tab and Use the right arrow key to move to the List of Entries Tab.">
                 <Grid>
                     <Label Content="Number of Entries&#xD;&#xA;" Target="{Binding ElementName=labelTotalEntries}" HorizontalAlignment="Left" Margin="26,30,0,0" VerticalAlignment="Top" Width="125" Height="26"/>
                     <Label x:Name="labelTotalEntries" Content="0" HorizontalAlignment="Left" Margin="168,30,0,0" VerticalAlignment="Top" Width="184" Height="26"/>
@@ -176,7 +176,7 @@
 
             </TabItem>
             <!-- The List tab. -->
-            <TabItem x:Name="tabList" Header="_List" ToolTip="View the list of past entries" >
+            <TabItem x:Name="tabList" Header="_List" ToolTip="View the list of past entries" AutomationProperties.Name="Log Entries List" AutomationProperties.HelpText="A list of all recorded audio and text log entries. Use the left arrow key to move to the Summary Tab and Use the right arrow key to move to the List Tab.">
                 <Grid>
                     <ListView x:Name="listViewEntries" Margin="10" />
                 </Grid>
